@@ -1,11 +1,26 @@
 apiVersion: v1
+# Versión de la API de Kubernetes para recursos básicos como Service
+
 kind: Service
+# Tipo de recurso: Service (expone Pods a la red)
+
 metadata:
   name: my-service
+  # Nombre del Service dentro del cluster
+
 spec:
   selector:
     app: mlops-app
+    # El Service enviará tráfico a los Pods que tengan esta label
+    # Debe coincidir con la label del Deployment
+
   ports:
     - port: 80
+      # Puerto por el que se accede al Service
+
       targetPort: 5000
+      # Puerto interno del contenedor (containerPort del Deployment)
+
   type: NodePort
+  # Expone el Service fuera del cluster
+  # Kubernetes asigna un puerto alto (30000–32767) en cada nodo
