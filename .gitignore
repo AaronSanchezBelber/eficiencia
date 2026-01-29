@@ -1,2 +1,4 @@
 venv/
 artifacts/
+MLOPS_PROJECT_9.egg-info/
+notebook/
